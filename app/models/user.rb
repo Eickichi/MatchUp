@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+         after_create :welcome_send
+
          validates :email,  presence: true, format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/, message: "email adresse please"}
          validates :email, uniqueness: true
          validates :password, length: { minimum: 6 }
@@ -17,5 +19,9 @@ class User < ApplicationRecord
          has_many :game_comments
          has_many :events, through: :game_comments
          has_many :conversations, :foreign_key => :sender_id
+
+         def welcome_send
+          UserMailer.welcome_email(self).deliver_now
+        end
 
 end
