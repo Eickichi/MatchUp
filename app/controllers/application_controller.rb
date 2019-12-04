@@ -23,14 +23,7 @@ class ApplicationController < ActionController::Base
             flash[:danger] = "Please log in."
             redirect_to new_user_session_path, flash: {danger: "Vous n'avez pas le droit d'acceder a cette page sans etre connecte"}
         end
-    end
-
-  private 
-
-    def current_user
-      @user = User.find(params[:id])
-    end
-  
+    end  
     
       helper_method :authenticate_user
 
