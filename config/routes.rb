@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   resources :events
   resources :games
   resources :home_page
-  resources :users
   devise_for :users
   resources :conversations do
     resources :messages
