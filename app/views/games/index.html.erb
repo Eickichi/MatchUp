@@ -1,1 +1,15 @@
-<h1>Tibo est cool</h1>
+<center>
+<div class="card-columns'">
+
+<% @game.each_with_index do |game, index| %>
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title"><%= game.game_name%> </h5>
+    <h5 class="card-text"><%= game.platform %></h5>
+    <a class="card-link" <%= link_to "SHOW ME THE GAME", game_path(game.id)%></a>
+  </div>
+</div>
+</div>
+<%  end %>
+
+</center>
