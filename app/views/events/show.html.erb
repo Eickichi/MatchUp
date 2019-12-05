@@ -13,3 +13,23 @@
 
     </div>
     </div>
+
+        <div class="jumbotron">
+		<p class="lead"> Description de l'evenement : <%= @event.description %></p>
+		<hr class="my-4">
+			<p>Cet evenement a ete cree par <%= "#{@event.creator.user_name},(#{@event.creator.email}) " %>, et se deroulera le <%= "#{@event.event_date}" %> </p>
+		</hr>
+		<hr class="my-4">
+			<p> Il y a <%= @participants.count %> participants a cet evenement. L'evenement se deroulera a <%= @event.city %>. </p>
+
+			<% if current_user.id == @event.creator.id %>
+				<a class="btn btn-secondary btn-lg" href="<%= edit_event_path(@event.id) %>" role="button">Modifier l'evenement</a>
+	   			<a class="btn btn-danger btn-lg" href="<%= event_path(@event.id) %>" role="button" data-confirm="Attention la suppression est irreversible" data-method="DELETE">Supprimer l'event</a>
+			<%else%>
+					<%= form_for :attendance, url: event_attendances_path(@event) do |f| %>
+			        	<button class="btn btn-success btn-lg">  Participer </button>
+			        <%end%> 
+					<a class="btn btn-danger btn-lg"  href="<%= event_attendance_path(@event) %>" role="button" data-method="DELETE"> Ne plus participer</a>
+				<%end%>
+		</hr>
+	</div>

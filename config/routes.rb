@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root 'home_page#index'
-  resources :events
+  resources :events do
+    resources :attendances, only: [:create, :destroy]
+  end
   resources :games
   resources :home_page
   resources :profiles
