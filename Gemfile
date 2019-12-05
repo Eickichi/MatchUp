@@ -80,3 +80,7 @@ gem 'rails_admin'
 gem 'route_translator'
 
 gem 'letter_opener', :group => :development
+
+gem 'bootstrap'
+
+gem 'jquery-rails'
