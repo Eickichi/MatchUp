@@ -17,8 +17,8 @@ class Event < ApplicationRecord
 
 
     def event_start 
-        unless  start_date > Time.zone.today
-                start_date.errors[:time] << 'event cannot be in the past'
+        unless  event_date > Time.zone.today
+                event_date.errors[:time] << 'event cannot be in the past'
         end
     end
 
