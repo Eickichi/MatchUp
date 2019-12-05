@@ -22,4 +22,3 @@ class EventMailer < ApplicationMailer
     
       end
     end
-end
