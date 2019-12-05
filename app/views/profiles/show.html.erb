@@ -1,2 +1,13 @@
-<h1>Bienvenue sur ta page profil <%= @user.first_name %></h1>
-<p>Ton profil a etait crée le <%= @user.created_at %></p>
+<h1>Bienvenue sur ta page profil <%= @user.user_name %></h1>
+<p>
+  Ton profil a etait crée le <%= @user.created_at %>
+  Ton profil porte l'id #<%= @user.id %><br/>
+  Tu viens de la ville <%= @user.city %><br/>
+  Tu t'appelle : <%= @user.first_name %><br/>
+  Ton nom c'est : <%= @user.last_name %><br/>
+  Ton email est le <%= @user.email %><br/>
+</p>
+
+<p> Pour avoir l'a possibilité de modifier tes infos c'est plutot par la :
+    <%= link_to "Editer mon profil", edit_user_registration_path, class:"btn btn-primary" %>
+</p>
