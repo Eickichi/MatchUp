@@ -18,17 +18,13 @@ class ApplicationController < ActionController::Base
         new_user_session_path
     end
 
-    def current_user
-      User.find_by(id: session[:user_id])
-    end
-
     def authenticate_user
         unless user_signed_in?
             flash[:danger] = "Please log in."
             redirect_to new_user_session_path, flash: {danger: "Vous n'avez pas le droit d'acceder a cette page sans etre connecte"}
         end
-    end
+    end  
     
-      helper_method :authenticate_user, :current_user
+      helper_method :authenticate_user
 
 end

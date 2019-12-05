@@ -9,7 +9,7 @@ class Event < ApplicationRecord
     validates :event_name, length: { minimum: 5 , maximum: 140 }
     validates :city, presence: true
     validates :game_played, presence: true
-    has_many :game_comments
+    has_many :event_comments
     has_many :users, through: :event_comments
     belongs_to :creator, class_name: "User"
     
@@ -17,8 +17,8 @@ class Event < ApplicationRecord
 
 
     def event_start 
-        unless  start_date > Time.zone.today
-                start_date.errors[:time] << 'event cannot be in the past'
+        unless  event_date > Time.zone.today
+                event_date.errors[:time] << 'event cannot be in the past'
         end
     end
 

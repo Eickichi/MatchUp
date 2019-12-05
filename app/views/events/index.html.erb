@@ -1,0 +1,15 @@
+<center>
+<div class="card-columns'">
+
+<% @events.each do |event| %>
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title"><%= event.event_name%> </h5>
+    <h5 class="card-text"><%= event.city %></h5>
+    <a class="card-link" <%= link_to "SHOW ME THE EVENT", event_path(event.id)%></a>
+  </div>
+</div>
+</div>
+<%  end %>
+
+</center>
