@@ -16,8 +16,8 @@ class User < ApplicationRecord
          has_many :games, through: :game_playeds
          has_many :game_comments
          has_many :games, through: :game_comments
-         has_many :game_comments
-         has_many :events, through: :game_comments
+         has_many :event_comments
+         has_many :events, through: :event_comments
          has_many :conversations, :foreign_key => :sender_id
 
          def welcome_send
