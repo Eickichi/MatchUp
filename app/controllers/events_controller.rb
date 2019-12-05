@@ -1,5 +1,4 @@
 class EventsController < ApplicationController
-    before_action :authenticate_user
 
     def index
       @events = Event.all
@@ -7,6 +6,7 @@ class EventsController < ApplicationController
   
     def show
         @event = Event.find(params[:id])
+        puts @participants = @event.attendances
     end
   
     def new
@@ -14,6 +14,7 @@ class EventsController < ApplicationController
     end
   
     def edit
+      @event = Event.find(params[:id])
     end
   
     def create
@@ -28,6 +29,7 @@ class EventsController < ApplicationController
     end
   
     def update
+      @event = Event.find(params[:id])
         if @event.update(event_params)
           redirect_to @event, notice: 'Event was successfully updated.' 
         else

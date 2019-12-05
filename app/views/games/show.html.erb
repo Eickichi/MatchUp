@@ -1,5 +1,5 @@
 <center>
-
+<div class="card-deck'">
 <div class="card-columns'">
 
 <div class="card" style="width: 18rem;">
@@ -11,6 +11,20 @@
   </div>
 </div>
 </div>
+
+<div class="card-columns'">
+
+<%= @game_comments.each do |game_comment| %>
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title"><%= game_comment.comment%> </h5>
+    <h5 class="card-text"><%= game_comment.user.user_name %></h5>
+  </div>
+</div>
+</div>
+</div>
+<%  end %>
+
 
 <a class="btn btn-primary mx-3" href ='/games/'> Return to the index </a>
 
