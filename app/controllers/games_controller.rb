@@ -1,5 +1,5 @@
 class GamesController < ApplicationController
-    #before_action :authenticate_user
+    before_action :authenticate_user
 
     def index 
         @game = Game.all
@@ -14,7 +14,7 @@ class GamesController < ApplicationController
  
     private
     
-    #def games_params
-        #params.permit(:sender_id, :recipient_id)
-    #end
+    def games_params
+        params.permit(:sender_id, :recipient_id)
+    end
 end
