@@ -1,0 +1,13 @@
+
+#header {
+	background-image: url("https://images.pexels.com/photos/209679/pexels-photo-209679.jpeg?auto=compress&cs=tinysrgb&h=650&w=940");
+  background-repeat: no-repeat;
+  background-size: cover; 
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.container_hero {
+
+}
