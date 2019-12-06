@@ -12,6 +12,12 @@
 </div>
 </div>
 
+<%= form_for :game_played, url: game_game_playeds_path(@game) do |f| %>
+			        	<button class="btn btn-success btn-lg">  Je joue à ce jeu </button>
+			        <%end%> 
+					<a class="btn btn-danger btn-lg"  href="<%= game_game_played_path(@game) %>" role="button" data-method="DELETE">Je ne joue plus à ce jeu</a>
+
+
 <div class="card-columns'">
 
 <%= @game_comments.each do |game_comment| %>
