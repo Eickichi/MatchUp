@@ -16,6 +16,5 @@
 //= require activestorage
 //= require owl.carousel
 //= require freelancer
-//= require bootstrap.bundle
 //= require jqBootstrapValidation
 //= require contact_me
