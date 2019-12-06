@@ -17,7 +17,7 @@
 <p> Joueurs de votre ville : </p>
 
 </div class="card-columns">
-    <%= @local_players.each do |local_player| %>
+    <% @local_players.each do |local_player| %>
         <div class="card" style="width: 10rem;">
           <div class="card-body">
           <a <%= link_to "#{local_player.user_name}", profile_path(local_player.id)%> </a>
@@ -37,7 +37,7 @@
  </br>
 
 <div class="card-columns'">
-    <%= @game_comments.each do |game_comment| %>
+    <% @game_comments.each do |game_comment| %>
       <div class="card" style="width: 18rem;">
           <div class="card-body">
               <h5 class="card-title"><%= game_comment.comment%> </h5>
