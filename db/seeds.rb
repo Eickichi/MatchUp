@@ -1,5 +1,6 @@
 require 'faker'
 
+Event.delete_all
 user_count = User.all.count
 
 20.times do |f|
@@ -8,7 +9,7 @@ end
 
 puts "20 utilisateurs crees"
 
-20.times do  
+6.times do  
         Event.create!(event_name: Faker::Cannabis.cannabinoid, description: Faker::ChuckNorris.fact, creator: User.all.sample, city: "Paris", duration: rand(1..10)*5, event_date: Faker::Date.forward(days: 100), game_played: Faker::Game.title)
 end
 
