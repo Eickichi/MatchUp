@@ -10,7 +10,7 @@ end
 puts "20 utilisateurs crees"
 
 6.times do  
-        Event.create!(event_name: Faker::JapaneseMedia::OnePiece.akuma_no_mi, description: Faker::ChuckNorris.fact, creator: User.all.sample, city: "Paris", duration: rand(1..10)*5, event_date: Faker::Date.forward(days: 100), game_played: Faker::Game.title)
+        Event.create!(event_name: Faker::JapaneseMedia::OnePiece.akuma_no_mi, description: Faker::ChuckNorris.fact, creator: User.all.sample, city: "Paris", duration: rand(1..10)*5, event_date: Faker::Date.forward(days: 100), game_played: Game.all.sample)
 end
 
 puts "20 evenements crees"
