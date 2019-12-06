@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   resources :events do
     resources :attendances, only: [:create, :destroy]
   end
-  resources :games
+  resources :games do
+    resources :game_playeds, only: [:create, :destroy]
+  end
   resources :home_page
   resources :profiles
   devise_for :users
