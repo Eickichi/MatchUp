@@ -19,19 +19,19 @@ class GamePlayedsController < ApplicationController
   
     def create
       if already_play?
-        flash[:danger] = "Il n'est pas possible de s'inscrire plusieurs fois a un evenement"
+        flash[:danger] = "Il n'est pas possible de s'inscrire plusieurs fois a un même jeu"
         redirect_to game_path(@game)
       else
         @game.game_playeds.create(user_id: current_user.id)
-        redirect_to game_path(@game), flash: {success: 'Super, vous etes insrit a un nouvel evenement !'}
+        redirect_to game_path(@game), flash: {success: 'Super, vous etes insrit a un nouvel jeu !'}
       end
     end
   
     def destroy
       find_game_played
-      if @game_playeds.destroy
+      if @game_played.destroy
       end
-        redirect_to games_path, flash: {danger: 'Vous etes desinscrit de cet evenement !'}
+        redirect_to games_path, flash: {danger: 'Vous etes desinscrit de ce jeu !'}
     end
   
     private

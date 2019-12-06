@@ -12,6 +12,9 @@
 </div>
 </div>
 
+<p> Il y a <%= @players.count %> joueurs qui jouent à ce jeu </p>
+
+
 <%= form_for :game_played, url: game_game_playeds_path(@game) do |f| %>
 			        	<button class="btn btn-success btn-lg">  Je joue à ce jeu </button>
 			        <%end%> 
