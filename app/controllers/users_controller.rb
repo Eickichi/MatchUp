@@ -6,10 +6,6 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-  def show
-    @user = User.find_by(id:params[:id])
-  end
-
   def new
     @user = User.new
   end
@@ -44,6 +40,6 @@ class UsersController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def user_params
-    return params.require(:user).permit(:first_name, :last_name, :user_name, :email, :bio, :gamertag)
+    return params.require(:user).permit(:first_name, :last_name, :user_name, :gamertag, :city, :bio, :email, :birth_date)
   end
 end

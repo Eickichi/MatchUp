@@ -11,10 +11,10 @@
 // about supported directives.
 //
 //= require jquery
-//= require rails-ujs
-//= require turbolinks
 //= require bootstrap
+//= require rails-ujs
 //= require activestorage
+//= require owl.carousel
 //= require freelancer
 //= require bootstrap.bundle
 //= require jqBootstrapValidation
