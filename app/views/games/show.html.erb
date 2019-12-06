@@ -13,28 +13,41 @@
 </div>
 
 <p> Il y a <%= @players.count %> joueurs qui jouent à ce jeu </p>
+<p> Il y a <%= @local_players.count %> joueurs qui jouent à ce jeu dans votre ville</p>
+<p> Joueurs de votre ville : </p>
 
+</div class="card-columns">
+    <%= @local_players.each do |local_player| %>
+        <div class="card" style="width: 10rem;">
+          <div class="card-body">
+            <%= local_player.user_name %>
+        </div>
+      </div>
+  <% end %>
+</div>
+</br>
 
 <%= form_for :game_played, url: game_game_playeds_path(@game) do |f| %>
 			        	<button class="btn btn-success btn-lg">  Je joue à ce jeu </button>
-			        <%end%> 
+			        <% end %> 
+              </br>
 					<a class="btn btn-danger btn-lg"  href="<%= game_game_played_path(@game) %>" role="button" data-method="DELETE">Je ne joue plus à ce jeu</a>
+</br>
 
+ </br>
 
 <div class="card-columns'">
-
-<%= @game_comments.each do |game_comment| %>
-<div class="card" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title"><%= game_comment.comment%> </h5>
-    <h5 class="card-text"><%= game_comment.user.user_name %></h5>
+    <%= @game_comments.each do |game_comment| %>
+      <div class="card" style="width: 18rem;">
+          <div class="card-body">
+              <h5 class="card-title"><%= game_comment.comment%> </h5>
+              <h5 class="card-text"><%= game_comment.user.user_name %></h5>
+          </div>
+      </div>
   </div>
-</div>
-</div>
-</div>
-<%  end %>
-
-
+<% end %>
+</br>
 <a class="btn btn-primary mx-3" href ='/games/'> Return to the index </a>
+</br></br>
 
 </center>

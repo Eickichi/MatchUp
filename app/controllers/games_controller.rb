@@ -9,6 +9,7 @@ class GamesController < ApplicationController
         @game = Game.find(params[:id])
         @players = @game.game_playeds
         @game_comments = GameComment.where(game: @game)
+        @local_players = User.where(game_playeds: @players, city: current_user.city)
     end
  
     private

@@ -22,6 +22,10 @@ class Event < ApplicationRecord
         end
     end
 
+    def event_time
+        event_date.strftime("%m/%d/%y at %l:%M %p")
+    end 
+
     def time_gate
             if (duration%5!= 0)
                 errors.add(:duration, message: "duration must be a multiple of 5")
