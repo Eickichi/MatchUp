@@ -1,17 +1,15 @@
-<center>  
-</br>
-<h3>Voici l'image actuel : </h3>
-<%if @event.images.attached?%>
-  <%= image_tag @event.images, alt: 'images' %>
-<%else%>
-  <p>=== Il n'y a pas encore d'image lié à cet event ===</p>
-<%end%>
+<center>
+<br/>
 
-<h3>Changer d'image ?</h3>
-<%= form_tag event_images_path(@event), multipart: true do %>
-  <%= file_field_tag :images %>
-  <%= submit_tag "mettre à jour" %>
+<h5>Voici l'image actuel : </h5>
+<% if @event.images.attached?%>
+	<% @event.images.each do |event| %>
+  	<%= image_tag event, alt: 'images' %>
+	<% end %>
+<% else %>
+  <p>=== Il n'y a pas encore d'image lié à cet event ===</p>
 <% end %>
+
 
 <div class="card mb-3" style="width: 18rem;">
   <div class="card-body">
@@ -19,29 +17,27 @@
     <h5 class="card-text"><%= @event.description %></h5>
     <h5 class="card-text">Game : <%= @event.game_played %></h5>
     <h5 class="card-text">Location : <%= @event.city %></h5>
-    <h5 class="card-text">Max Participant : </br> <%= @event.max_participant %></h5>
+    <h5 class="card-text">Max Participant : <br/> <%= @event.max_participant %></h5>
     <h5 class="card-text">Time : <%= @event.event_date %></h5>
-    <h5 class="card-text">Event created by : </br>    <%= @event.creator.first_name %> <%= @event.creator.last_name %> </h5>
-    <h5 class="card-text">Reach him at : </br> <%= @event.creator.email %></h5>
-
-    </div>
-    </div>
-        <div class="jumbotron">
-		<p class="lead"> Description de l'evenement : <%= @event.description %></p>
-		<hr class="my-4">
-			<p>Cet evenement a ete cree par <%= "#{@event.creator.user_name},(#{@event.creator.email}) " %>, et se deroulera le <%= "#{@event.event_date}" %> </p>
-		</hr>
-		<hr class="my-4">
-			<p> Il y a <%= @participants.count %> participants a cet evenement. L'evenement se deroulera a <%= @event.city %>. </p>
-
-			<% if current_user.id == @event.creator.id %>
-				<a class="btn btn-secondary btn-lg" href="<%= edit_event_path(@event.id) %>" role="button">Modifier l'evenement</a>
-	   			<a class="btn btn-danger btn-lg" href="<%= event_path(@event.id) %>" role="button" data-confirm="Attention la suppression est irreversible" data-method="DELETE">Supprimer l'event</a>
-			<%else%>
-					<%= form_for :attendance, url: event_attendances_path(@event) do |f| %>
-			        	<button class="btn btn-success btn-lg">  Participer </button>
-			        <%end%> 
-					<a class="btn btn-danger btn-lg"  href="<%= event_attendance_path(@event) %>" role="button" data-method="DELETE"> Ne plus participer</a>
-				<%end%>
-		</hr>
-		</div>
+    <h5 class="card-text">Event created by : <br/>    <%= @event.creator.first_name %> <%= @event.creator.last_name %> </h5>
+    <h5 class="card-text">Reach him at : <br/> <%= @event.creator.email %></h5>
+  </div>
+</div>
+<div class="jumbotron">
+	<p class="lead"> Description de l'evenement : <%= @event.description %></p>
+	<hr class="my-4">
+		<p>Cet evenement a ete cree par <%= "#{@event.creator.user_name},(#{@event.creator.email}) " %>, et se deroulera le <%= "#{@event.event_date}" %> </p>
+	<hr/>
+	<hr class="my-4">
+		<p> Il y a <%= @participants.count %> participants a cet evenement. L'evenement se deroulera a <%= @event.city %>. </p>
+		<% if current_user.id == @event.creator.id %>
+			<a class="btn btn-secondary btn-lg" href="<%= edit_event_path(@event.id) %>" role="button">Modifier l'evenement</a>
+	 			<a class="btn btn-danger btn-lg" href="<%= event_path(@event.id) %>" role="button" data-confirm="Attention la suppression est irreversible" data-method="DELETE">Supprimer l'event</a>
+		<%else%>
+			<%= form_for :attendance, url: event_attendances_path(@event) do |f| %>
+		  	<button class="btn btn-success btn-lg">  Participer </button>
+		  <%end%> 
+			<a class="btn btn-danger btn-lg"  href="<%= event_attendance_path(@event) %>" role="button" data-method="DELETE"> Ne plus participer</a>
+		<%end%>
+	<hr/>
+</div>
