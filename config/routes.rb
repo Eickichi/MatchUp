@@ -5,7 +5,9 @@ Rails.application.routes.draw do
     resources :attendances, only: [:create, :destroy]
     resources :images, only: [:create]
   end
-  resources :games
+  resources :games do
+    resources :game_playeds, only: [:create, :destroy]
+  end
   resources :home_page
   resources :profiles, only: [:show] do
     resources :avatars, only: [:create]
