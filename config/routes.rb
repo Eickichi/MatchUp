@@ -3,10 +3,13 @@ Rails.application.routes.draw do
   root 'home_page#index'
   resources :events do
     resources :attendances, only: [:create, :destroy]
+    resources :images, only: [:create]
   end
   resources :games
   resources :home_page
-  resources :profiles
+  resources :profiles, only: [:show] do
+    resources :avatars, only: [:create]
+  end
   devise_for :users
   resources :conversations do
     resources :messages

@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 
     def configure_devise_parameters
       devise_parameter_sanitizer.permit(:sign_up) {|u| u.permit(:first_name, :last_name, :email, :password, :password_confirmation, :user_name, :gamertag, :city, :bio, :birth_date, :social_tag)}
-      devise_parameter_sanitizer.permit(:account_update) {|u| u.permit(:current_password, :first_name, :last_name, :email, :password, :password_confirmation, :user_name, :gamertag, :city, :bio, :birth_date, :social_tag)}
+      devise_parameter_sanitizer.permit(:account_update) {|u| u.permit(:current_password, :first_name, :last_name, :email, :password, :password_confirmation, :user_name, :gamertag, :city, :bio, :birth_date, :social_tag, :avatar)}
     end
 
     def after_sign_in_path_for(resource_or_scope)

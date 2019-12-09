@@ -1,5 +1,6 @@
 class Event < ApplicationRecord
 
+    
     has_many :attendances
     has_many :users, through: :attendances
     validates :event_date, presence: true
@@ -12,7 +13,7 @@ class Event < ApplicationRecord
     has_many :event_comments
     has_many :users, through: :event_comments
     belongs_to :creator, class_name: "User"
-    
+    has_many_attached :images
     
 
 
