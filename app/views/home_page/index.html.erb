@@ -6,7 +6,7 @@
 <body>
   <!-- Masthead -->
   <header id="header" class="masthead bg-primary text-white text-center">
-   <%= render 'layouts/header' %>
+   <%= render 'home_page/header' %>
   </header>
 
   <!-- Portfolio Section -->
@@ -27,33 +27,38 @@
 </div>
 
       <!-- Portfolio Grid Items -->
+<div class="row">
+  <div class="card-deck">
+    <div class="container-fluid content-row">
       <div class="row">
+        <% @events.each do |event| %>
 
-       <div class="card-deck">
-<div class="container-fluid content-row">
-    <div class="row">
-     <% @events.each do |event| %>
-      <div class="col-sm-12 col-lg-6">
-    <a href= "<%= "events/#{event.id}"%>" style="text-decoration: none"><div class="card mb-3" s>
-      <img class="card-image" src="https://images.pexels.com/photos/1767434/pexels-photo-1767434.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">
-     
-      <div class="card-body">
-        <h4 class="card-title"><%= event.event_name.capitalize %></h4>
-        <span class="badge badge-pill badge-secondary"><%= event.city %></span>
+        <div class="col-sm-12 col-lg-6">
+          <a href= "<%= "events/#{event.id}"%>" style="text-decoration: none">
+            <div class="card mb-3">
+              <img class="card-img-top" src="https://images.pexels.com/photos/1767434/pexels-photo-1767434.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"/>
 
-   <a href="#" class="btn btn-primary-outline pull-right"><%=event.game_played%></a>
-
+                <h3 class="card-header"><%= event.event_name.capitalize %>
+                </h3>
+                  <div class="card-body">
+              <a class="btn btn-primary-outline"><i class="fas fa-map-marker-alt">&nbsp;</i><%=event.city%></a>
+              <a class="btn btn-primary-outline" style="float: right;"><i class="fas fa-calendar-alt">&nbsp;</i><%=event.event_date%></a><br>
+              <center><a class="btn btn-primary-outline"><i class="fas fa-gamepad"></i>&nbsp;</i><%=event.game_played%></a></center>
+              
       </div>
        <div class="card-footer">
-      <small class="text-muted"><%= event.event_time %></small>
+      <small class="text-muted">Organized by <%= event.creator %></small>
+
+  
+
     </div>
-    </div></a>
+            </div>  
+          </a>
+        </div>
+     <% end %></div>
+    </div>
   </div>
-     <% end %>
-    </div>
-</div>
-</div>
-        
+</div>  
   </section>
 
 
