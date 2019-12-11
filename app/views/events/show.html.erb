@@ -1,7 +1,6 @@
 <center>
 <br/>
 
-<h5>Voici l'image actuel : </h5>
 <% if @event.images.attached?%>
 	<% @event.images.each do |event| %>
   	<%= image_tag event, alt: 'images' %>
