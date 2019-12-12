@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   end
   resources :home_page
   resources :profiles
-  devise_for :users
+  devise_for :users 
   resources :conversations do
     resources :messages
   end
