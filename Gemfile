@@ -88,3 +88,5 @@ gem 'bootstrap'
 gem 'jquery-rails'
 
 gem 'owlcarousel-rails'
+
+gem "aws-sdk-s3", require: false
