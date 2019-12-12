@@ -5,7 +5,8 @@
   background-size: cover; 
   width: 100%;
   height: auto;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .card-image {
@@ -18,12 +19,13 @@
 }
 
 
+
 body {
 	padding-top: 120px; 
   
 }
 
 .footer-below {
-  padding-top: 50px; 
+  
 }
 
