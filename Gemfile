@@ -86,3 +86,6 @@ gem 'letter_opener', :group => :development
 gem 'bootstrap'
 
 gem 'jquery-rails'
+
+gem 'owlcarousel-rails'
+
