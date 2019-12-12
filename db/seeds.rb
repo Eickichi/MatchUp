@@ -3,9 +3,9 @@ require 'faker'
 Event.delete_all
 user_count = User.all.count
 
-#5.times do |f|
-        #User.create!(user_name: Faker::Games::Pokemon.name, first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, bio: Faker::Quote.famous_last_words, email: "Sasuke#{f+user_count}@yopmail.com", password:"Helloworld", gamertag: Faker::Games::Pokemon.location, city: "Paris", social_tag: Faker::Games::SuperSmashBros.fighter, birth_date: Faker::Date.birthday(min_age: 18, max_age: 65) )
-#end
+5.times do |f|
+        User.create!(user_name: Faker::Games::Pokemon.name, first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, bio: Faker::Quote.famous_last_words, email: "Sasuke#{f+user_count}@yopmail.com", password:"Helloworld", gamertag: Faker::Games::Pokemon.location, city: "Paris", social_tag: Faker::Games::SuperSmashBros.fighter, birth_date: Faker::Date.birthday(min_age: 18, max_age: 65) )
+end
 
 puts "20 utilisateurs crees"
 
@@ -15,9 +15,9 @@ end
 
 puts "20 evenements crees"
 
-#20.times do  
-    #Game.create!(game_name: Faker::Game.title, platform: Faker::Game.platform, genre: Faker::Game.genre)
-#end
+20.times do  
+    Game.create!(game_name: Faker::Game.title, platform: Faker::Game.platform, genre: Faker::Game.genre)
+end
 
 
 20.times do		
