@@ -9,10 +9,8 @@ Rails.application.routes.draw do
     resources :game_playeds, only: [:create, :destroy]
   end
   resources :home_page
-  resources :profiles, only: [:show] do
-    resources :avatars, only: [:create]
-  end
-  devise_for :users
+  resources :profiles
+  devise_for :users 
   resources :conversations do
     resources :messages
   end 

@@ -3,10 +3,10 @@
 <head>
 	<title></title>
 </head>
-<body>
+<body class="body-home-page">
   <!-- Masthead -->
   <header id="header" class="masthead bg-primary text-white text-center">
-   <%= render 'layouts/header' %>
+   <%= render 'home_page/header' %>
   </header>
 
   <!-- Portfolio Section -->
@@ -24,36 +24,37 @@
         </div>
         <div class="divider-custom-line"></div>
       </div><br><br><br>
-</div>
+    </div>
 
       <!-- Portfolio Grid Items -->
+<div class="row">
+  <div class="card-deck">
+    <div class="container-fluid content-row">
       <div class="row">
+        <% @events.each do |event| %>
 
-       <div class="card-deck">
-<div class="container-fluid content-row">
-    <div class="row">
-     <% @events.each do |event| %>
-      <div class="col-sm-12 col-lg-6">
-    <a href= "<%= "events/#{event.id}"%>" style="text-decoration: none"><div class="card mb-3" s>
-      <img class="card-image" src="https://images.pexels.com/photos/1767434/pexels-photo-1767434.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">
-     
-      <div class="card-body">
-        <h4 class="card-title"><%= event.event_name.capitalize %></h4>
-        <span class="badge badge-pill badge-secondary"><%= event.city %></span>
+        <div class="col-sm-12 col-lg-6">
+          <a href= "<%= "events/#{event.id}"%>" style="text-decoration: none">
+            <div class="card mb-3">
+              <img class="card-img-top" src="https://images.pexels.com/photos/1767434/pexels-photo-1767434.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"/>
 
-   <a href="#" class="btn btn-primary-outline pull-right"><%=event.game_played%></a>
-
-      </div>
+                <h3 class="card-header"><%= event.event_name.capitalize %>
+                </h3>
+                  <div class="card-body">
+              <a class="btn btn-primary-outline"><i class="fas fa-map-marker-alt">&nbsp;</i><%=event.city%></a>
+              <a class="btn btn-primary-outline" style="float: right;"><i class="fas fa-calendar-alt">&nbsp;</i><%=event.event_date%></a><br>
+              <center><a class="btn btn-primary-outline"><i class="fas fa-gamepad"></i>&nbsp;</i><%=event.game_played%></a></center>      
+               </div>
        <div class="card-footer">
-      <small class="text-muted"><%= event.event_time %></small>
+      <small class="text-muted">Organized by <%= event.creator.user_name %></small>
     </div>
-    </div></a>
+            </div>  
+          </a>
+        </div>
+     <% end %></div>
+    </div>
   </div>
-     <% end %>
-    </div>
-</div>
-</div>
-        
+</div>  
   </section>
 
 
@@ -169,53 +170,6 @@
           </form>
         </div>
       </div>
-
-    </div>
-  </section>
-
-<!-- Footer -->
-  <footer class="footer text-center">
-    <div class="container">
-      <div class="row">
-
-        <!-- Footer Location -->
-        <div class="col-lg-4 mb-5 mb-lg-0">
-          <h4 class="text-uppercase mb-4">Location</h4>
-          <p class="lead mb-0">00 rue de l'Abysse Tropicale</p>
-        </div>
-
-        <!-- Footer Social Icons -->
-        <div class="col-lg-4 mb-5 mb-lg-0">
-          <h4 class="text-uppercase mb-4">Follow Us</h4>
-          <a class="btn btn-outline-light btn-social mx-1" href="#">
-            <i class="fab fa-fw fa-facebook-f"></i>
-          </a>
-          <a class="btn btn-outline-light btn-social mx-1" href="#">
-            <i class="fab fa-fw fa-twitter"></i>
-          </a>
-          <a class="btn btn-outline-light btn-social mx-1" href="#">
-            <i class="fab fa-fw fa-linkedin-in"></i>
-          </a>
-          <a class="btn btn-outline-light btn-social mx-1" href="#">
-            <i class="fab fa-fw fa-dribbble"></i>
-          </a>
-        </div>
-
-        <!-- Footer About Text -->
-        <div class="col-lg-4">
-          <h4 class="text-uppercase mb-4">About SmashUp! Theme</h4>
-          <p class="lead mb-0">Freelance is a free to use, MIT licensed Bootstrap theme created by
-            <a href="http://startbootstrap.com">Start Bootstrap</a>.</p>
-        </div>
-
-      </div>
-    </div>
-  </footer>
-
-  <!-- Copyright Section -->
-  <section class="copyright py-4 text-center text-white">
-    <div class="container">
-      <small>Copyright &copy; SmashUp! 2019</small>
     </div>
   </section>
 
