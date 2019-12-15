@@ -4,57 +4,75 @@
   <title></title>
 </head>
 <body class = "signbod">
-</html><div class="container">
+<br>
+  <div class="container">
+
+      <!-- Portfolio Section Heading -->
+      <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Sign-Up</h2>
+
+      <!-- Icon Divider -->
+      <div class="divider-custom">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon">
+          <i class="fas fa-user"></i>
+        </div>
+        <div class="divider-custom-line"></div>
+      </div>
+    </div>
+<div class="container">
   <div class="row">
     <div class="col-md-6 offset-md-3">
-      <br><br><br>
+      
       <%= form_for resource, as: resource_name, url: registration_path(resource_name), html: { class: "form-signin mt-3" } do |f| %>
-        <h1 class="h3 mb-3 font-weight-normal text-center">Sign up</h1>
+       
         <%= devise_error_messages! %>
    <div class="field">
     <%= f.label :first_name %><br />
-    <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", class: "form-control" %>
+    <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", class: "form-control", placeholder: "Jean" %>
   </div>
-
+<br/>
    <div class="field">
     <%= f.label :last_name %><br />
-    <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", class: "form-control" %>
+    <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", class: "form-control", placeholder: "Dupont" %>
   </div>
-
+<br/>
 
   <div class="field">
     <%= f.label :user_name %><br />
-    <%= f.text_field :user_name, autofocus: true, autocomplete: "user_name", class: "form-control" %>
+    <%= f.text_field :user_name, autofocus: true, autocomplete: "user_name", class: "form-control", placeholder: "JeanBGdu92" %>
   </div>
 
-  <br/>
+<br/>
 
   <div class="field">
     <%= f.label :gamertag %><br />
-    <%= f.text_field :gamertag, autofocus: true, autocomplete: "gamertag", class: "form-control" %>
+    <%= f.text_field :gamertag, autofocus: true, autocomplete: "gamertag", class: "form-control", placeholder: "Steam: Jeanolito" %>
   </div>
 
   <br/>
 
   <div class="field">
     <%= f.label :city %><br />
-    <%= f.text_field :city, autofocus: true, autocomplete: "city", class: "form-control" %>
+    <%= f.text_field :city, autofocus: true, autocomplete: "city", class: "form-control", placeholder: "Wonderland" %>
   </div>
 
   <br/>
 
   <div class="field">
-    <%= f.label :bio %><br />
-    <%= f.text_field :bio, autofocus: true, autocomplete: "bio", class: "form-control"  %>
-  </div>
-
-<div class="field">
     <%= f.label :date_of_birth %><br />
-    <%= f.text_field :birth_date, autofocus: true, autocomplete: "yyyy/mm/dd",class: "form-control"  %>
+    <%= f.date_field :birth_date, autofocus: true, autocomplete: "yyyy/mm/dd", class: "form-control", placeholder: "yyyy/mm/dd"  %>
   </div>
+  <br/>
+
+  <div class="field">
+    <%= f.label :bio %><br />
+    <%= f.text_area :bio, autofocus: true, autocomplete: "bio", class: "form-control", rows: "3", placeholder: "Tell us about yourself" %>
+  </div>
+  <br/><hr>
+
         <div class="form-group">
           <%= f.label :email, "Email" %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "jeandupont@gmail.com" %>
         </div>
 
         
@@ -74,7 +92,9 @@
         </div>
       <% end %>
       <%= render "devise/shared/links" %>
+
     </div>
   </div>
 </div>
 </body>
+</html>

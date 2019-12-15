@@ -1,4 +1,21 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<br><div class="container">
+
+      <!-- Portfolio Section Heading -->
+      <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Edit <%= resource_name.to_s.humanize %></h2>
+
+      <!-- Icon Divider -->
+      <div class="divider-custom">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon">
+          <i class="fas fa-edit"></i>
+        </div>
+        <div class="divider-custom-line"></div>
+      </div>
+    </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
@@ -7,56 +24,62 @@
 
   <div class="field">
     <%= f.label :first_name %><br />
-    <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", placeholder: "First name" %>
+    <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", class: "form-control", placeholder: "Jean" %>
   </div>
 
   <br/>
 
   <div class="field">
     <%= f.label :last_name %><br />
-    <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", placeholder: "Last name" %>
+    <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", class: "form-control", placeholder: "Dupont" %>
   </div>
 
   <br/>
 
   <div class="field">
     <%= f.label :user_name %><br />
-    <%= f.text_field :user_name, autofocus: true, autocomplete: "user_name", placeholder: "Username" %>
+    <%= f.text_field :user_name, autofocus: true, autocomplete: "user_name", class: "form-control", placeholder: "JeanBGdu92" %>
   </div>
 
   <br/>
 
   <div class="field">
     <%= f.label :gamertag %><br />
-    <%= f.text_field :gamertag, autofocus: true, autocomplete: "gamertag", placeholder: "Gamertag" %>
+    <%= f.text_field :gamertag, autofocus: true, autocomplete: "gamertag", class: "form-control", placeholder: "Jeanolito" %>
   </div>
 
   <br/>
 
-  <div class="field">
+ <div class="field">
     <%= f.label :city %><br />
-    <%= f.text_field :city, autofocus: true, autocomplete: "city", placeholder: "City" %>
+    <%= f.text_field :city, autofocus: true, autocomplete: "city", class: "form-control", placeholder: "Wonderland" %>
   </div>
 
   <br/>
+
+   <div class="field">
+    <%= f.label :date_of_birth %><br />
+    <%= f.date_field :birth_date, autofocus: true, autocomplete: "yyyy/mm/dd", class: "form-control", placeholder: "yyyy/mm/dd"  %>
+  </div><br/>
 
   <div class="field">
     <%= f.label :bio %><br />
-    <%= f.text_field :bio, autofocus: true, autocomplete: "bio", placeholder: "Bio" %>
+    <%= f.text_area :bio, autofocus: true, autocomplete: "bio", class: "form-control", rows: "3", placeholder: "Tell us about yourself" %>
+
   </div>
 
   <br/>
 
   <div class="field">
-    <%= f.label :date_of_birth %><br/>
-    <%= f.date_field :birth_date, autofocus: true, placeholder: "Birthdate" %>
+    <%= f.label :date_of_birth %><br />
+    <%= f.date_field :birth_date, autofocus: true, autocomplete: "yyyy/mm/dd", class: "form-control", placeholder: "yyyy/mm/dd"  %>
   </div>
 
-  <br/>
+  <br/><hr>
   
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", class: "form-control" %>
   </div>
 
   <br/>
@@ -66,10 +89,17 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :current_password %> <i></i><br />
+    <%= f.password_field :current_password, autocomplete: "current-password", placeholder: "Mot de passe actuelle", class: "form-control" %>
+  </div>
+
+  <br/>
+
+  <div class="field">
     <%= f.label :password %><br/>
-    <%= f.password_field :password, autocomplete: "new-password", placeholder: "Nouveau Mot de Passe" %>
+    <%= f.password_field :password, autocomplete: "new-password", placeholder: "New Password", class: "form-control" %>
     <% if @minimum_password_length %>
-      <em><%= @minimum_password_length %> caractère minimum</em>
+      <em><%= @minimum_password_length %> characters minimum</em>
     <% end %>
   </div>
 
@@ -77,27 +107,21 @@
 
   <div class="field">
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirmer le mdp" %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirm password", class: "form-control" %>
   </div>
 
-  <br/>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(Pour modifier les champs nous avons besoin du mot de passe)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password", placeholder: "Mot de passe actuelle" %>
-  </div>
-
-  <br/>
-
-  <div class="actions">
-    <%= f.submit "Mettre a jour"%>
+  <div class="actions mt-5">
+          <%= f.submit "Edit", class: "btn btn-lg btn-primary btn-block" %>
   </div>
 <% end %>
 
 <br/>
 
-<h3>Supprimer mon compte</h3>
+<h3><center>Delete my account</center></h3>
 
-<p>Décu ? <%= button_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Es tu sur ?" }, method: :delete %></p>
+<p> <%= button_to "Supprimer mon compte", registration_path(resource_name), class: "btn-lg btn-danger btn-block", data: { confirm: "Are you sure?" }, method: :delete %></p>
 
-<%= link_to "Retour", :back, class: "btn btn-primary"%>
+<%= link_to "Retour", :back, class: "btn btn-light"%>
+</div>
+</div>
+</div>
