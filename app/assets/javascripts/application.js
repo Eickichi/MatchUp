@@ -18,3 +18,5 @@
 //= require jqBootstrapValidation
 //= require contact_me
 //= require js/freelancer.min
+//= require owl.carousel
+//= require carousel
