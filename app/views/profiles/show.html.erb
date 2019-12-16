@@ -35,7 +35,7 @@
           <desc id="desc">Cartoon of a Caucasian woman smiling, and wearing black glasses and a purple shirt with white collar drawn by Alvaro Montoro.</desc>
           <style>
             .skin { fill: #eab38f; }
-            .eyes { fill: #1f1f1f; }
+            .eyes { fill: #000000; }
             .hair { fill: #2f1b0d; }
             .line { fill: none; stroke: #2f1b0d; stroke-width:2px; }
           </style>
@@ -147,7 +147,7 @@
 	  <% if @user.birth_date == nil  || @user.birth_date == 0 || @user.birth_date == ""%>
       <a style="float: right;"><i class="far fa-id-badge"></i>&nbsp;&nbsp;Immortal</a>
 	  <% else %>
-	  <a style="float: right;"><i class="far fa-id-badge"></i>&nbsp;&nbsp;<%= @now.year - @user.birth_date.year - ((@now.month > @user.birth_date.month || (@now.month == @user.birth_date.month && now.day >= @user.birth_date.day)) ? 0 : 1)%>&nbsp;years old</a>
+	  <a style="float: right;"><i class="far fa-id-badge"></i>&nbsp;&nbsp;<%= @now.year - @user.birth_date.year - ((@now.month > @user.birth_date.month || (@now.month == @user.birth_date.month && @now.day >= @user.birth_date.day)) ? 0 : 1)%>&nbsp;years old</a>
 		<% end %><br><br><br>
 
 		<% if @user.email == nil || @user.email == "" %>

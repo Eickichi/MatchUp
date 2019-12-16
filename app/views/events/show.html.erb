@@ -1,15 +1,25 @@
-<center>  
-</br>
+<center>
+<br/>
+
+<% if @event.images.attached?%>
+	<% @event.images.each do |event| %>
+  	<%= image_tag event, alt: 'images' %>
+	<% end %>
+<% else %>
+  <p>=== Il n'y a pas encore d'image lié à cet event ===</p>
+<% end %>
+
+
 <div class="card mb-3" style="width: 18rem;">
   <div class="card-body">
     <h5 class="card-title"><%= @event.event_name %> </h5>
     <h5 class="card-text"><%= @event.description %></h5>
     <h5 class="card-text">Game : <%= @event.game_played %></h5>
     <h5 class="card-text">Location : <%= @event.city %></h5>
-     <h5 class="card-text">Max Participant : </br> <%= @event.max_participant %></h5>
+     <h5 class="card-text">Max Participant : <br/> <%= @event.max_participant %></h5>
     <h5 class="card-text">Time : <%= @event.event_time %></h5>
-    <h5 class="card-text">Event created by : </br>    <%= @event.creator.first_name %> <%= @event.creator.last_name %> </h5>
-    <h5 class="card-text">Reach him at : </br> <%= @event.creator.email %></h5>
+    <h5 class="card-text">Event created by : <br/>    <%= @event.creator.first_name %> <%= @event.creator.last_name %> </h5>
+    <h5 class="card-text">Reach him at : <br/> <%= @event.creator.email %></h5>
 
     </div>
     </div>
@@ -27,4 +37,4 @@
 			        <%end%> 
 					<a class="btn btn-danger btn-lg"  href="<%= event_attendance_path(@event) %>" role="button" data-method="DELETE"> Ne plus participer</a>
 				<%end%>
-				</br></br></br>
+				<br/><br/><br/>
